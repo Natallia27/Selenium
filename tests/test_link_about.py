@@ -11,8 +11,9 @@ from pages.login_page import Login_page
 from pages.main_page import Main_page
 from pages.cart_page import Cart_page
 from pages.payment_page import Payment_page
+import allure
 
-
+@allure.description("Test link about")
 def test_link_about(set_up):
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)

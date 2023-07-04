@@ -1,5 +1,5 @@
 import time
-
+import allure
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -14,7 +14,7 @@ from pages.main_page import Main_page
 from pages.cart_page import Cart_page
 from pages.payment_page import Payment_page
 
-
+@allure.description("Test buy product 1")
 # @pytest.mark.run(order=2)
 def test_buy_product_1(set_group):
     options = webdriver.ChromeOptions()
@@ -44,7 +44,7 @@ def test_buy_product_1(set_group):
     # time.sleep(5)
     driver_g.quit()
 
-
+@allure.description("Test buy product 2")
 # @pytest.mark.run(order=3)
 def test_buy_product_2(set_group):
     options = webdriver.ChromeOptions()
@@ -65,7 +65,7 @@ def test_buy_product_2(set_group):
     time.sleep(5)
     driver_g.quit()
 
-
+@allure.description("Test buy product 3")
 # @pytest.mark.run(order=1)
 def test_buy_product_3():
     options = webdriver.ChromeOptions()

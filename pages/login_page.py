@@ -4,7 +4,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 from base.base_class import Base
-
+from utilities.logger import Logger
+import allure
 
 class Login_page(Base):
 
@@ -53,13 +54,16 @@ class Login_page(Base):
 
     # Methods
     def authorization(self):
-        self.driver_g.get(self.url)
-        self.driver_g.maximize_window()
-        self.get_current_url()
-        self.input_user_name("standard_user")
-        self.input_password("secret_sauce")
-        self.click_button_login()
-        self.get_assert_word(self.get_main_word(), 'Products')
+        with allure.step("Authorization"):
+            Logger.add_start_step(method="authorization")
+            self.driver_g.get(self.url)
+            self.driver_g.maximize_window()
+            self.get_current_url()
+            self.input_user_name("standard_user")
+            self.input_password("secret_sauce")
+            self.click_button_login()
+            self.get_assert_word(self.get_main_word(), 'Products')
+            Logger.add_end_step(url=self.driver_g.current_url, method="authorization")
 
 
 

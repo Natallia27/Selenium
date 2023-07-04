@@ -43,3 +43,4 @@ class Base():
         get_url = self.driver_g.current_url
         assert get_url == result
         print('Good url')
+

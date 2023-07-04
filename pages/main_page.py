@@ -4,8 +4,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 from base.base_class import Base
+from utilities.logger import Logger
 
-
+import allure
 class Main_page(Base):
 
 
@@ -78,24 +79,37 @@ class Main_page(Base):
 
     # Methods
     def add_product_1(self):
-        self.get_current_url()
-        self.click_product_1add()
-        self.click_cart()
+        with allure.step("Add product 1"):
+            Logger.add_start_step(method="add_product_1")
+            self.get_current_url()
+            self.click_product_1add()
+            self.click_cart()
+            Logger.add_end_step(url=self.driver_g.current_url, method="add_product_1")
 
     def add_product_2(self):
-        self.get_current_url()
-        self.click_product_2add()
-        self.click_cart()
+        with allure.step("Add product 2"):
+            Logger.add_start_step(method="add_product_2")
+            self.get_current_url()
+            self.click_product_2add()
+            self.click_cart()
+            Logger.add_end_step(url=self.driver_g.current_url, method="add_product_2")
 
     def add_product_3(self):
-        self.get_current_url()
-        self.click_product_3add()
-        self.click_cart()
+        with allure.step("Add product 3"):
+            Logger.add_start_step(method="add_product_2")
+            self.get_current_url()
+            self.click_product_3add()
+            self.click_cart()
+            Logger.add_end_step(url=self.driver_g.current_url, method="add_product_2")
+
     def select_menu_about(self):
-        self.get_current_url()
-        self.click_menu()
-        self.click_link_about()
-        self.get_assert_url("https://saucelabs.com/")
+        with allure.step("Select_menu_about"):
+            Logger.add_start_step(method="select_menu_about")
+            self.get_current_url()
+            self.click_menu()
+            self.click_link_about()
+            self.get_assert_url("https://saucelabs.com/")
+            Logger.add_end_step(url=self.driver_g.current_url, method="select_menu_about")
 
 
 
